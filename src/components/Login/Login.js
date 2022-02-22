@@ -47,7 +47,8 @@ const Login = (props) => {
 
   useEffect(() => {
     const identifier = setTimeout(() => {
-       setFormIsValid(emailState.isValid && passwordState.isValid);
+       console.log('checking validity')
+       setFormIsValid(emailIsValid && passwordIsValid);
     }, 500);
 
    return () => {
@@ -59,9 +60,9 @@ const Login = (props) => {
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: 'USER_INPUT',val: event.target.value });
 
-    setFormIsValid(
-      event.target.value.includes('@') && passwordState.isValid
-    );
+//    setFormIsValid(
+//      event.target.value.includes('@') && passwordState.isValid
+//    );
   };
 
   const passwordChangeHandler = (event) => {
